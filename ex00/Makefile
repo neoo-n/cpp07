@@ -1,5 +1,5 @@
 NAME	=	base
-SRCS	=	main.cpp Base.cpp
+SRCS	=	main.cpp
 OBJS	=	${SRCS:.cpp=.o}
 CC		=	c++
 CFLAGS	=	-Werror -Wextra -Wall -std=c++98
