@@ -1,4 +1,4 @@
-NAME	=	whatever
+NAME	=	array
 SRCS	=	main.cpp
 OBJS	=	${SRCS:.cpp=.o}
 CC		=	c++

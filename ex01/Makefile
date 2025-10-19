@@ -1,4 +1,4 @@
-NAME	=	base
+NAME	=	iter
 SRCS	=	main.cpp
 OBJS	=	${SRCS:.cpp=.o}
 CC		=	c++
