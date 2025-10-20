@@ -13,7 +13,7 @@ template <typename T>
 Array<T>::Array(const Array &cpy)
 : _size(cpy._size)
 {
-	this->_arr = new T[cpy._size];
+	this->_arr = new(std::nothrow) T[cpy._size];
 	for (unsigned int i = 0; i < cpy._size; i++)
 		this->_arr[i] = cpy._arr[i];
 	if (DEBUG)
@@ -24,9 +24,7 @@ template <typename T>
 Array<T>::Array(const unsigned int n)
 {
 	this->_size = n;
-	this->_arr = new T[n];
-	for (unsigned int i = 0; i < n; i++)
-		this->_arr[i] = 0;
+	this->_arr = new(std::nothrow) T[n];
 	if (DEBUG)
 		std::cout << BLUE << "Number contructor" << std::endl << WHITE;
 }
@@ -37,7 +35,7 @@ Array<T>	&Array<T>::operator=(const Array &obj)
 	if (this != &obj)
 	{
 		this->_size = obj._size;
-		this->_arr = new T[obj._size];
+		this->_arr = new(std::nothrow) T[obj._size];
 		for (unsigned int i = 0; i < obj._size; i++)
 			this->_arr[i] = obj._arr[i];
 	}
@@ -65,7 +63,7 @@ int	Array<T>::size() const
 }
 
 template <typename T>
-T	*Array<T>::getArray()
+T const	*Array<T>::getArray() const
 {
 	return (this->_arr);
 }
